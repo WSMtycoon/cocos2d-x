@@ -58,8 +58,8 @@ from optparse import OptionParser
 COCOS_CONSOLE_ROOT = 'COCOS_CONSOLE_ROOT'
 COCOS_X_ROOT = 'COCOS_X_ROOT'
 COCOS_TEMPLATES_ROOT = 'COCOS_TEMPLATES_ROOT'
-NDK_ROOT = 'NDK_ROOT'
-ANDROID_SDK_ROOT = 'ANDROID_SDK_ROOT'
+NDK_ROOT = 'ANDROID_NDK'
+ANDROID_SDK_ROOT = 'ANDROID_SDK'
 
 
 def _check_python_version():
@@ -270,68 +270,6 @@ class SetEnvVar(object):
             '  ->Please enter the path of %s (or press Enter to skip):' % var_name)
         ret.rstrip(" \t")
         return ret
-
-# python on linux doesn't include Tkinter model, so let user input in terminal
-#         if self._isLinux():
-#             input_value = raw_input('Couldn\'t find the "%s" envrironment variable. Please enter it: ' % sys_var)
-#         else:
-
-# pop up a window to let user select path for ndk root
-#             import Tkinter
-#             import tkFileDialog
-
-#             self.tmp_input_value = None
-
-#             root = Tkinter.Tk()
-
-#             if sys_var == NDK_ROOT:
-#                 root.wm_title('Set NDK_ROOT')
-#             else:
-#                 root.wm_title('Set ANDROID_SDK_ROOT')
-
-#             def callback():
-#                 self.tmp_input_value = tkFileDialog.askdirectory()
-#                 root.destroy()
-
-#             if sys_var == NDK_ROOT:
-#                 label_content = 'Select path for Android NDK:'
-#                 label_help = """
-# The Android NDK is needed to develop games for Android.
-# For further information, go to:
-# http://developer.android.com/tools/sdk/ndk/index.html.
-
-# You can safely skip this step now. You can set the NDK_ROOT later.
-#                 """
-
-#             if sys_var == ANDROID_SDK_ROOT:
-#                 label_content = 'Select path for Android SDK'
-#                 label_help = """
-# The Android SDK is needed to develop games for Android.
-# For further information, go to:
-# https://developer.android.com/tools/sdk/ndk/index.html.
-
-# You can safely skip this step now. You can set the ANDROID_SDK_ROOT later.
-#                 """
-
-#             Tkinter.Label(root, text=label_help).pack()
-#             Tkinter.Button(root, text=label_content, command=callback).pack()
-#             self._center(root)
-#             root.mainloop()
-
-#             input_value = self.tmp_input_value
-#             self.tmp_input_value = None
-
-#         return input_value
-
-# display a window in center and put it on top
-#     def _center(self, win):
-#         win.update_idletasks()
-#         width = win.winfo_width()
-#         height = win.winfo_height()
-#         x = (win.winfo_screenwidth() / 2) - (width / 2)
-#         y = (win.winfo_screenheight() / 2) - (height / 2)
-#         win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
-#         win.wm_attributes('-topmost', 1)
 
     def _check_valid(self, var_name, value):
         ret = False
